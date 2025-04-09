@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %} price {% endblock title %}
+
+{% block body %}
+  
+    <style>
+      table, th, td {
+        border:black; 
+        border-width:1px; 
+        border-style:solid;
+        padding:10px;
+        width :60%;
+      }
+ 
+     
+    </style>
+    <div class="b-example-divider"></div>
+     <div class="px-4 py-5 my-5 text-center">
+     <h2 class="display-5 fw-bold"> The estimated price is</h2>
+     <h2 class="display-5 fw-bold"> ₹  <strong style="color:green">{{price}} Lakh</strong></h2>
+     <br>
+     <a href="/predict"  class="btn btn-primary btn-lg"  role="button">Back </a>  
+
+    </div>
+    <div class="b-example-divider"></div>
+
+  {% endblock body %}
+

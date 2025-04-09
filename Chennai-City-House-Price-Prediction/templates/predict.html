@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+
+{% block title %} Predict {% endblock title %}
+
+{% block body %}
+
+<div class="p-5 mb-4 bg-light rounded-3">
+    <div class="container-fluid py-5">
+        <div class="jumbotron">
+            <style>
+                form{
+                  border:black; 
+                  border-width:3px; 
+                  border-style:solid;
+                  padding:20px;
+                  width :60%;
+                }
+                
+                input{
+                    float: right;
+            
+                  }
+                
+                select{
+                    float: right;
+            
+                  }
+        
+                label{
+                    float:left;
+                }  
+               
+              </style>
+            <center>
+                <form method = "POST" action="predictprice/">
+                    {% csrf_token %}
+                    <br>
+                    <H5> ENTER BELOW INFORMATION... </H5><br>
+                    <div class="form-group">
+                        <div class="row" >
+                          <div class ="col" >
+                            <div class="form-group">
+                                <label for="area">Enter Area Of Home in square foot </label><br>
+                                <input type="text" class="form-control" name ="area" placeholder="1200" Required>
+                            </div><br>
+                            </div>
+            
+                            <div class ="col" >   
+                            
+                             <label for="status">Select Status</label>
+                            <select  class="form-control" name ="status">
+                              <option></option>
+                              <option>Ready to move</option>
+                              <option>Under Construction</option>                  
+                            </select>
+                          </div>
+                        </div>
+                        <br>
+                        <div class="row" >
+                            <div class ="col" >
+                                 <label for="bhk">Enter  BHK Size</label>
+                                 <input type="number" class="form-control" name ="bhk" placeholder="3" Required>
+                              </div>
+                               
+                              
+                              
+                              <div class ="col" >   
+                              
+                                <label for="bathroom">Enter  Bathroom Size</label>
+                                <input type="number" class="form-control" name ="bathroom" placeholder="2" Required>
+                              </div>
+
+                              <div class ="col" >
+                               <label for="age">Enter  Ege of Home in Year</label>
+                               <input type="number" class="form-control" name ="age" placeholder="1" Required>
+                              </div>
+                          </div>            
+                        <br>
+        
+        
+                        <div class="row" >   
+                              <div class ="col" >   
+                              
+                                <label for="location">Select  Location Here</label>
+                              
+                                <select  class="form-control" name ="location">
+                                  {% for i in location %}
+                                    <option>{{ i }}</option>
+                                   {{i}}
+                                  {% endfor %}               
+                                </select>
+                             </div>
+
+
+                             <div class ="col" >   
+                              
+                              <label for="builder">Select  Builder Here</label>
+                            
+                              <select  class="form-control" name ="builder">
+                                {% for i in builder %}
+                                  <option>{{ i }}</option>
+                                 {{i}}
+                                {% endfor %}               
+                              </select>
+                           </div>
+                        </div>            
+                        <br>
+                        <div class="mx-auto" style="width: 200px;">
+                          <div class="row">
+                            <br>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                           </div>
+                          </div> 
+                 </div>     
+                </form>
+                  <br>
+            </center>
+    </div>
+
+{% endblock body %}
